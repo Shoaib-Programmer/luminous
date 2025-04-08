@@ -19,12 +19,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="text-center"
     >
-      <AnimatedContent
-        slice={slice}
-        index={0}
-        slices={[]}
-        context={undefined}
-      />
+      <AnimatedContent slice={slice} />
     </Bounded>
   );
 };
