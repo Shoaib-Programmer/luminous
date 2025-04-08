@@ -14,18 +14,24 @@ export default function usePrefersReducedMotion() {
     React.useState(getInitialState);
   React.useEffect(() => {
     const mediaQueryList = window.matchMedia(QUERY);
-    const listener = (event: any) => {
+    // Type the event parameter as MediaQueryListEvent
+    const listener = (event: MediaQueryListEvent) => {
       setPrefersReducedMotion(!event.matches);
     };
+    // The 'change' event on MediaQueryList dispatches a MediaQueryListEvent
+    // modern browsers
     if (mediaQueryList.addEventListener) {
       mediaQueryList.addEventListener("change", listener);
     } else {
+      // older browsers
       mediaQueryList.addListener(listener);
     }
     return () => {
+      // modern browsers
       if (mediaQueryList.removeEventListener) {
         mediaQueryList.removeEventListener("change", listener);
       } else {
+        // older browsers
         mediaQueryList.removeListener(listener);
       }
     };

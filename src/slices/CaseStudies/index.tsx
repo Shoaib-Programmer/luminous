@@ -42,7 +42,7 @@ const CaseStudies: FC<CaseStudiesProps> = async ({ slice }) => {
       </h2>
 
       <div className="mx-auto mt-6 max-w-md text-balance text-center text-slate-300">
-      <PrismicRichText field={slice.primary.body} />
+        <PrismicRichText field={slice.primary.body} />
       </div>
 
       <div className="mt-20 grid gap-16">

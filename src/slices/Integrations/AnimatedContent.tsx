@@ -31,7 +31,7 @@ export default function AnimatedContent({
     fly: <FaFly />,
   };
   const container = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+  // const prefersReducedMotion = usePrefersReducedMotion();
   gsap.registerPlugin(useGSAP);
 
   useGSAP(
@@ -78,26 +78,30 @@ export default function AnimatedContent({
         },
         "-=1.4",
       );
-      tl.to(".pulsing-icon", {
-        keyframes: [
-          {
-            opacity: 1,
-            stagger: {
-              from : "center",
-              each: 0.3
+      tl.to(
+        ".pulsing-icon",
+        {
+          keyframes: [
+            {
+              opacity: 1,
+              stagger: {
+                from: "center",
+                each: 0.3,
+              },
+              duration: 1,
             },
-            duration: 1,
-          },
-          {
-            opacity: 0.4,
-            duration: 1,
-            stagger: {
-              from : "center",
-              each: 0.3
+            {
+              opacity: 0.4,
+              duration: 1,
+              stagger: {
+                from: "center",
+                each: 0.3,
+              },
             },
-          }
-        ]
-      }, "-=2")
+          ],
+        },
+        "-=2",
+      );
     },
     { scope: container },
   );
